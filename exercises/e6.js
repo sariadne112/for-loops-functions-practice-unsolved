@@ -5,8 +5,16 @@
 
 export function getClientWithNoMoney(array) {
   // Your code goes here...
-
+  const clientsWithNoMoney = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].balance === 0) {
+      clientsWithNoMoney.push(array[i].name);
+    }
+  }
+  return clientsWithNoMoney;
 }
+
+//console.log(getClientWithNoMoney(bankAccounts));
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-6"
