@@ -6,9 +6,25 @@
 
 export function getAllWithdrawals(array) {
   // Your code goes here...
+  const allWithdrawals = [];
 
+  for (let i = 0; i < array.length; i++) {
+    const account = array[i];
+
+    if (Array.isArray(account.withdrawals)) {
+      let sum = 0;
+      for (let j = 0; j < account.withdrawals.length; j++) {
+        sum += account.withdrawals[j];
+      }
+      allWithdrawals.push(sum);
+    } else {
+      allWithdrawals.push(0);
+    }
+  }
+
+  return allWithdrawals;
 }
-
+//console.log(getAllWithdrawals([]));
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
 // If the test has all tests passed, switch to the next exercise file
