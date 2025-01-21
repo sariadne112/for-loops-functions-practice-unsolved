@@ -10,23 +10,24 @@
 // ]
 
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
-  const result = []; // Initialize an array to store the matching accounts
+  const result = [];
 
   for (let i = 0; i < array.length; i++) {
     const account = array[i];
-    if (
-      !Array.isArray(account.deposits) ||
-      account.deposits.length === 0 ||
-      account.deposits.reduce((sum, deposit) => sum + deposit, 0) <
-        2000
-    ) {
+    let sumOfDeposits = 0;
+
+    if (account.deposits && account.deposits.length > 0) {
+      for (let j = 0; j < account.deposits.length; j++) {
+        sumOfDeposits += account.deposits[j];
+      }
+    }
+    if (sumOfDeposits < 2000) {
       result.push(account);
     }
   }
-
   return result;
 }
-
+//console.log(getAllAccountsWithSumsOfDepositsLess2000(bankAccounts));
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-13"
 // If the test has all tests passed, switch to the next exercise file

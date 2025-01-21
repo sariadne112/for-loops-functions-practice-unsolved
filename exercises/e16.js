@@ -10,7 +10,7 @@ export function flatArrays(array) {
 
   for (let i = 0; i < array.length; i++) {
     const currentElement = array[i];
-    if (Array.isArray(currentElement)) {
+    if (currentElement) {
       for (let j = 0; j < currentElement.length; j++) {
         result.push(currentElement[j]);
       }
